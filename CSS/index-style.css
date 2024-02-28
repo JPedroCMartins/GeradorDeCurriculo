@@ -1,0 +1,53 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Lobster";
+    font-style: normal;
+    color: #9290C3;
+}
+
+.container{
+    width: 100vw;
+    height: 100vh;
+    background-color: #070F2B;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.box{
+    width: 500px;
+    height: 500px;
+    font-size: 200%;
+    text-align: center;
+    background-color: #1B1A55;
+    border: 5px solid #535C91;
+    border-radius: 15px;
+}
+
+.btns{
+    width: 100%;
+}
+
+input{
+    border: 1px solid black;
+    background-color:#9290C3;
+    color: #1B1A55;
+    border-radius: 5px;
+    height: 100%;
+    width: 90%;
+    font-size: large;
+    font-family: "Lobster";
+    transition: all 300ms ease-in-out;
+
+}
+input:hover{
+    background: #070F2B;
+}
+input:focus{
+    background: green;
+}

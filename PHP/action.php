@@ -8,7 +8,36 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            -webkit-print-color-adjust: exact;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+        }
+
+        header {
+            text-align: center;
+
+        }
+
+        .head-topic {
+            background: rgb(204, 204, 204);
+            border-bottom: 1px solid black;
+        }
+
+        footer {
+            font-family: "arial black";
+            text-align: center;
+            width: 100%;
+            height: 100px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
 
 </head>
 
