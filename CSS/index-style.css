@@ -4,9 +4,9 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Verdana;
     font-style: normal;
-    color: #9290C3;
+    color: #1B1A55;
 }
 
 .container{
@@ -21,17 +21,32 @@ body {
 
 .box{
     width: 500px;
-    height: 500px;
+    height: 115px;
     font-size: 200%;
     text-align: center;
-    background-color: #1B1A55;
+    background-color: #9290C3;
     border: 5px solid #070F2B;
     border-radius: 15px;
     box-shadow: -5px 5px 5px #070F2B;
 }
+.content{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
 
 .btns{
-    width: 100%;
+
+}
+.header-icon{
+    position: absolute;
+    top: 200px;
+}
+
+footer{
+    position: absolute;
+    bottom: 290px;
 }
 
 input{
@@ -39,19 +54,19 @@ input{
     background-color:#9290C3;
     color: #1B1A55;
     border-radius: 5px;
-    height: 100%;
-    width: 90%;
     font-size: large;
     font-family: Arial, Helvetica, sans-serif;
     transition: all 300ms ease-in-out;
     box-shadow: -1px 5px 5px #070F2B;
-
+    padding: 5px;
 }
 input:hover{
-    background: #070F2B;
+    background: white;
     box-shadow: -10px 5px 5px #070F2B;
-    width: 95%;
+    width: 200px;
 }
 input:focus{
-    background: green;
+    background: white;
+    box-shadow: -10px 5px 5px #070F2B;
+    width: 200px;
 }
