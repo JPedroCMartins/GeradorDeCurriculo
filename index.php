@@ -47,7 +47,7 @@
             include("conexao.php");
 
             // Consulta SQL para selecionar todas as experiências profissionais
-            $query = "SELECT clienteCodigo, clienteNome, clienteEmail FROM cliente";
+            $query = "SELECT clienteCodigo, clienteNome, clienteEmail FROM cliente ORDER BY clienteCodigo DESC";
 
             // Executar a consulta
             $result = mysqli_query($conn, $query);

@@ -87,14 +87,23 @@
 
             var fieldset = document.createElement('fieldset');
             fieldset.innerHTML = `
-        <legend>Experiência ${numExperiencias}</legend>
-        <div class="form-group">
-          <label for="empresa${numExperiencias}"> Empresa: </label>
-          <input type="text" name="empresa${numExperiencias}" id="empresa${numExperiencias}" class="text_input">
-          <label for="cargo${numExperiencias}"> Cargo: </label>
-          <input type="text" name="cargo${numExperiencias}" id="cargo${numExperiencias}" class="text_input">
-        </div>
-      `;
+                <legend>Experiência ${numExperiencias}</legend>
+                <div class="form-group">
+                    <label for="empresa${numExperiencias}"> Empresa: </label>
+                    <input type="text" name="empresa${numExperiencias}" id="empresa${numExperiencias}" class="text_input">
+                    
+                    <label for="cargo${numExperiencias}"> Cargo: </label>
+                    <input type="text" name="cargo${numExperiencias}" id="cargo${numExperiencias}" class="text_input">
+                    
+                    <br>
+                    
+                    <label for="inicio${numExperiencias}"> Inicio: </label>
+                    <input type="text" name="inicio${numExperiencias}" id="inicio${numExperiencias}" class=text_input">
+                    
+                    <label for="fim${numExperiencias}"> Fim: </label>
+                    <input type="text" name="fim${numExperiencias}" id="fim${numExperiencias}" class=text_input">
+                </div>
+            `;
             fieldset.classList.add('experiencia');
 
             document.getElementById('experiencias').appendChild(fieldset);
@@ -106,9 +115,25 @@
             var div = document.createElement('div');
             div.classList.add('form-group', 'curso-complementar');
             div.innerHTML = `
-        <label for="cursoComplementar${numCursos}">Curso complementar ${numCursos}:</label>
-        <input type="text" name="complement_education${numCursos}" id="complement_education${numCursos}" class="text_input">
-      `;
+                <legend>Curso Comlementar ${numCursos}</legend>
+                <label for="cursoComplementar${numCursos}">Curso: </label>
+                <input type="text" name="complement_education_nome${numCursos}" id="complement_education_nome${numCursos}" class="text_input">
+
+                <label for="CursoInicio">Inicio: </label>
+                <input type="text" name="complement_education_inicio${numCursos} id="complement_education_inicio${numCursos}" class="text_input">
+
+                <label for="CursoFim">Fim: </label>
+                <input type="text" name="complement_education_fim${numCursos} id="complement_education_fim${numCursos}" class="text_input">
+
+                <label for="CursoInst"> Unidade de Ensino: </label>
+                <input type="text" name="complement_education_inst${numCursos} id="complement_education_inst${numCursos}" class="text_input">
+            `;
+            /*
+                `cursoIncio` varchar(80) NOT NULL,
+                `cursoFim` varchar(80) NOT NULL,
+                `cursoNome` varchar(80) NOT NULL,
+                `cursoInstituicao` varchar(80) NOT NULL
+            */
 
             document.getElementById('cursosComplementares').appendChild(div);
         }

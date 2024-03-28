@@ -8,8 +8,7 @@
     $clienteObjetivo = $_POST["areaObjetivo"];
     $clienteEscolaridade = $_POST["educacao"];
 
-    $experienciaInicio = "TEST";
-    $experienciaFim = "TEST";
+
 
     $enviar = $_POST["enviar"];
     include("conexao.php");
@@ -37,6 +36,14 @@
                 for ($i = 1; $i <= 20; $i++) {
                     $experienciaCargo = $_POST["cargo$i"];
                     $experienciaEmpresa = $_POST["empresa$i"];
+                    $experienciaInicio = $_POST["inicio$i"];
+                    $experienciaFim = $_POST["fim$i"];
+                    /*
+                        `cursoIncio` varchar(80) NOT NULL,
+                        `cursoFim` varchar(80) NOT NULL,
+                        `cursoNome` varchar(80) NOT NULL,
+                        `cursoInstituicao` varchar(80) NOT NULL
+                    */
 
 
                     // Verificar se cargo e empresa foram preenchidos
