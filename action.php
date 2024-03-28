@@ -69,7 +69,7 @@
 
         echo '<script> 
         alert("cliente adicionado com sucesso")
-        window.location="index.html";
+        window.location="index.php";
         </script>';
 
     }

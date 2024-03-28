@@ -1,5 +1,5 @@
 <?php
-    $servidor = "192.168.0.191";
+    $servidor = "localhost";
     $banco = "curriculos2024";
     $usuario = "root";
     $senha = "";

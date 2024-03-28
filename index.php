@@ -42,7 +42,38 @@
         </div>
     </div>
     <div class=" container mt-5" id="erro">
+        <?php
+            // Estabelecer conexão com o banco de dados
+            include("conexao.php");
 
+            // Consulta SQL para selecionar todas as experiências profissionais
+            $query = "SELECT clienteCodigo, clienteNome, clienteEmail FROM cliente";
+
+            // Executar a consulta
+            $result = mysqli_query($conn, $query);
+
+            // Verificar se há resultados
+            if (mysqli_num_rows($result) > 0) {
+                // Exibir os resultados em uma tabela HTML
+                echo "<table border='1' class='table'>";
+                echo "<tr><th>Código</th><th>Nome</th><th>Email</th></tr>";
+
+                while($row = mysqli_fetch_assoc($result)) {
+                    echo "<tr>";
+                    echo "<td>" . $row["clienteCodigo"] . "</td>";
+                    echo "<td>" . $row["clienteNome"] . "</td>";
+                    echo "<td>" . $row["clienteEmail"] . "</td>";
+                    echo "</tr>";
+                }
+
+                echo "</table>";
+            } else {
+                echo "Nenhum resultado encontrado.";
+            }
+
+            // Fechar conexão com o banco de dados
+            mysqli_close($conn);
+        ?>
     </div>
 
     <footer>
