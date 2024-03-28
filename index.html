@@ -1,44 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="CSS/index-style.css">
+    <title>Gerador de Currículo</title>
+    <!-- Adicione a CDN do Bootstrap -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Estilos adicionais */
+        footer {
+            background-color: #f8f9fa;
+            padding: 20px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
 </head>
 
 <body>
-    <section class="container">
-        <div class="box">
-            <div class="content">
-                <div class="header-icon">
-                    <img src="curriculo.png" alt="" width="100">
-                </div>
-
-                <div class="btns">
-                    <input type="button" value="Gerar Curriculo" id="btnGerar">
-                    <br>
-                    <input type="button" value="Buscar Curriculo" id="btnBuscar">
-                </div>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="#">Gerador de Currículo</a>
             </div>
+        </nav>
+    </header>
 
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col text-center">
+                <h1>Gerador de Currículo</h1>
+            </div>
         </div>
-        <footer>Created by: <a href="https://www.github.com/JPedroCMartins"
-                style="text-decoration: none;">@JPedroCMartins</a></footer>
-    </section>
+        <div class="row mt-3">
+            <div class="col text-center">
+                <button class="btn btn-primary btn-lg mr-2" onclick='redirect(1)'>Gerar Currículo</button>
+                <button class="btn btn-secondary btn-lg ml-2" onclick='redirect(2)'>Pesquisar</button>
+            </div>
+        </div>
+    </div>
+    <div class=" container mt-5" id="erro">
 
+    </div>
 
+    <footer>
+        <div class="container">
+            <p class="text-center">© JPedroCMartins</p>
+        </div>
+    </footer>
 
+    <!-- Adicione a biblioteca jQuery e o Bootstrap JS no final do corpo do documento para melhorar o carregamento da página -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-        var buttonBuscar = document.getElementById('btnBuscar');
-        var buttonGerar = document.getElementById('btnGerar');
-        buttonBuscar.onclick = function () {
-            window.open('http://localhost/cursophp/PHP/test.php', '_blank');
-        };
-        buttonGerar.onclick = function () {
-            window.open('http://localhost/cursophp/gerador.html', '_blank');
-        };
+        var erro = document.getElementById("erro")
+        function redirect(gerar) {
+            if (gerar == 1) {
+                window.open("http://192.168.191/GeradorDeCurriculo/gerador.html", "_blank");
+            }
+            if (gerar == 2) {
+                erro.innerHTML = '<div class="row"><div class="col text-center"><h3 style="color: red;">Erro: Sistema de pesquisa ainda não funcional</h3></div></div>'
+
+            }
+        }
     </script>
 </body>
 
