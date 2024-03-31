@@ -2,7 +2,8 @@
     $clienteDocumentacaoCompleta = 1;
     $clienteNome = $_POST["nome"];
     $clienteEmail = $_POST["email"];
-    $clienteNascimento = $_POST["data_nascimento"];
+    $data = $_POST["data_nascimento"];
+    $clienteNascimento = date('d/m/Y', strtotime($data));
     $clienteEndereco = $_POST["endereco"];
     $clienteTelefone = $_POST["telefone"];
     $clienteObjetivo = $_POST["areaObjetivo"];
@@ -33,20 +34,17 @@
                 $row = mysqli_fetch_assoc($resultadoSelecionar);
                 $clienteCodigo = $row['clienteCodigo'];
 
-                for ($i = 1; $i <= 20; $i++) {
+                for ($i = 0; $i <= 20; $i++) {
                     $experienciaCargo = $_POST["cargo$i"];
                     $experienciaEmpresa = $_POST["empresa$i"];
                     $experienciaInicio = $_POST["inicio$i"];
                     $experienciaFim = $_POST["fim$i"];
-                    /*
-                        `cursoIncio` varchar(80) NOT NULL,
-                        `cursoFim` varchar(80) NOT NULL,
-                        `cursoNome` varchar(80) NOT NULL,
-                        `cursoInstituicao` varchar(80) NOT NULL
-                    */
 
+                    $cursoInicio = $_POST["complement_education_inicio$i"];
+                    $cursoFim = $_POST["complement_education_fim$i"];
+                    $cursoNome = $_POST["complement_education_nome$i"];
+                    $cursoInstituicao = $_POST["complement_education_inst$i"];
 
-                    // Verificar se cargo e empresa foram preenchidos
                     if (!empty($experienciaCargo) && !empty($experienciaEmpresa)) {
                         $queryInserirExperiencia = "INSERT INTO experiencia(experienciaClienteCodigo, experienciaInicio, experienciaFim ,experienciaCargo, experienciaEmpresa) VALUES (
                             '$clienteCodigo',
@@ -57,11 +55,27 @@
                         )";
                         $resultadoInserirExperiencia = mysqli_query($conn, $queryInserirExperiencia);
                         
-                        // Verificar se a inserção da experiência foi bem sucedida
                         if (!$resultadoInserirExperiencia) {
                             echo "Erro ao inserir experiência profissional: " . mysqli_error($conn);
                         }
                     }
+
+                    if (!empty($cursoNome)) {
+                        $queryInserirCurso = "INSERT INTO curso_complementar(cursoClienteCodigo, cursoInicio, cursoFim, cursoNome, cursoInstituicao) VALUES (
+                            '$clienteCodigo',
+                            '$cursoInicio',
+                            '$cursoFim',
+                            '$cursoNome',
+                            '$cursoInstituicao'
+                        )";
+                        $resultadoInserirCurso = mysqli_query($conn, $queryInserirCurso);
+                        
+                        if (!$resultadoInserirCurso) {
+                            echo "Erro ao inserir curso complementar: " . mysqli_error($conn);
+                        }
+                    }
+                
+                
                 }
 
             }else {

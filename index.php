@@ -16,6 +16,7 @@
             bottom: 0;
             width: 100%;
         }
+
     </style>
 </head>
 
@@ -34,46 +35,55 @@
                 <h1>Gerador de Currículo</h1>
             </div>
         </div>
-        <div class="row mt-3">
+        <div class="row">
             <div class="col text-center">
                 <button class="btn btn-primary btn-lg mr-2" onclick='redirect(1)'>Gerar Currículo</button>
-                <button class="btn btn-secondary btn-lg ml-2" onclick='redirect(2)'>Pesquisar</button>
+                <button class="btn btn-secondary btn-lg ml-2" onclick='redirect(2)'>Database</button>
             </div>
+        </div>
+        <div class="row mt-5">
+            <?php
+                // Estabelecer conexão com o banco de dados
+                include("conexao.php");
+
+                // Consulta SQL para selecionar todas as experiências profissionais
+                $query = "SELECT clienteCodigo, clienteNome, clienteEmail FROM cliente ORDER BY clienteCodigo DESC";
+
+                // Executar a consulta
+                $result = mysqli_query($conn, $query);
+
+                // Verificar se há resultados
+                if (mysqli_num_rows($result) > 0) {
+                    // Exibir os resultados em uma tabela HTML
+                    echo "<table border='1' class='table table-dark'>";
+                    echo "<tr><th>Código</th><th>Nome</th><th>Email</th><th>Curriculo</th><th>Opção</th></tr>";
+
+                    while($row = mysqli_fetch_assoc($result)) {
+                        echo "<tr>";
+                        echo "<td>" . $row["clienteCodigo"] . "</td>";
+                        echo "<td>" . $row["clienteNome"] . "</td>";
+                        if (empty($row["clienteEmail"])){
+                            echo "<td style='color: yellow;'> SEM EMAIL</td>";
+                        }else{
+                            echo "<td>" . $row["clienteEmail"] . "</td>";
+                        }
+                        
+                        echo "<td><a href='curriculo.php?codigo=" . $row["clienteCodigo"] . "' onclick='abrirPaginaEImprimir(this.href); return false;'>Exibir (para impressão)</a></td>";
+                        echo "<td><a href='delete.php?codigo=". $row["clienteCodigo"] . "'> Apagar </a> | <a href=''> Editar <a></td>";
+                        echo "</tr>";
+                    }
+
+                    echo "</table>";
+                } else {
+                    echo "Nenhum resultado encontrado.";
+                }
+
+                // Fechar conexão com o banco de dados
+                mysqli_close($conn);
+            ?>
         </div>
     </div>
     <div class=" container mt-5" id="erro">
-        <?php
-            // Estabelecer conexão com o banco de dados
-            include("conexao.php");
-
-            // Consulta SQL para selecionar todas as experiências profissionais
-            $query = "SELECT clienteCodigo, clienteNome, clienteEmail FROM cliente ORDER BY clienteCodigo DESC";
-
-            // Executar a consulta
-            $result = mysqli_query($conn, $query);
-
-            // Verificar se há resultados
-            if (mysqli_num_rows($result) > 0) {
-                // Exibir os resultados em uma tabela HTML
-                echo "<table border='1' class='table'>";
-                echo "<tr><th>Código</th><th>Nome</th><th>Email</th></tr>";
-
-                while($row = mysqli_fetch_assoc($result)) {
-                    echo "<tr>";
-                    echo "<td>" . $row["clienteCodigo"] . "</td>";
-                    echo "<td>" . $row["clienteNome"] . "</td>";
-                    echo "<td>" . $row["clienteEmail"] . "</td>";
-                    echo "</tr>";
-                }
-
-                echo "</table>";
-            } else {
-                echo "Nenhum resultado encontrado.";
-            }
-
-            // Fechar conexão com o banco de dados
-            mysqli_close($conn);
-        ?>
     </div>
 
     <footer>
@@ -93,10 +103,29 @@
                 window.open("http://192.168.191/GeradorDeCurriculo/gerador.html", "_blank");
             }
             if (gerar == 2) {
-                erro.innerHTML = '<div class="row"><div class="col text-center"><h3 style="color: red;">Erro: Sistema de pesquisa ainda não funcional</h3></div></div>'
-
+                //erro.innerHTML = '<div class="row"><div class="col text-center"><h3 style="color: red;">Erro: Sistema de pesquisa ainda não funcional</h3></div></div>'
+                window.open("http://192.168.0.191/phpmyadmin/index.php?route=/database/structure&db=curriculos2024");
             }
         }
+
+        function abrirPaginaEImprimir(url) {
+            // Abre a página vinculada ao link em uma nova janela
+            var novaJanela = window.open(url);
+            
+            // Aguarda um curto período para garantir que a nova janela seja carregada
+            setTimeout(function() {
+                // Se a nova janela foi aberta corretamente
+                if (novaJanela) {
+                    // Inicia a janela de impressão na nova janela
+                    novaJanela.print();
+                } else {
+                    // Caso contrário, avisa o usuário que a janela pop-up está bloqueada
+                    alert('Pop-up bloqueado. Por favor, habilite os pop-ups para imprimir.');
+                }
+            }, 1000); // Espera 1 segundo (1000 milissegundos) para a janela ser aberta
+        }
+
+
     </script>
 </body>
 

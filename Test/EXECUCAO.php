@@ -46,7 +46,6 @@
         <h1>
             <?php echo htmlspecialchars($_POST['name']); ?>
         </h1>
-        
     </header>
 
     <div id="dados_pessoais">
