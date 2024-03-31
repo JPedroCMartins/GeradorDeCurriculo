@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Curriculo</title>
+    <link rel="icon" type="image/x-icon" href="Images\favicon-32x32.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -107,24 +108,39 @@
 
     <div id="dados_pessoais">
         <h2 class="head-topic"> DADOS PESSOAIS</h2>
-
-        <i class="fa-solid fa-check"></i> <strong>Data de nascimento:</strong> 
-        <?php echo $clienteNascimento; ?>
-        <br>
-
-        <i class="fa-solid fa-check"></i> <strong>Endereço:</strong> 
-        <?php echo $clienteEndereco; ?>
-        <br>
-
-        <i class="fa-solid fa-check"></i> <strong>Telefone:</strong> 
-        <?php echo $clienteTelefone; ?>
-        <br>
-
-
+ 
+        <?php 
+            if (!empty($clienteNascimento)){
+                ?>
+                <i class="fa-solid fa-check"></i> <strong>Data de nascimento:</strong>
+                <?php
+                echo $clienteNascimento; 
+            }
+            
+        ?>
+        <?php 
+            if (!empty($clienteEndereco)){
+                ?>
+                <br>
+                <i class="fa-solid fa-check"></i> <strong>Endereço:</strong> 
+                <?php
+                echo $clienteEndereco; 
+            }  
+        ?>
+        <?php 
+            if (!empty($clienteTelefone)){
+                ?>
+                <br>
+                <i class="fa-solid fa-check"></i> <strong>Telefone:</strong>
+                <?php
+                echo $clienteTelefone; 
+            }  
+        ?>
         
         <?php 
             if (!empty($clienteEmail)){
                 ?>
+                <br>
                 <i class="fa-solid fa-check"></i> <strong>Email:</strong> 
                 <?php
                 echo $clienteEmail;

@@ -7,6 +7,7 @@
     <title>Gerador de Currículo</title>
     <!-- Adicione a CDN do Bootstrap -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="Images\favicon-32x32.png">
     <style>
         /* Estilos adicionais */
         footer {
@@ -24,7 +25,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
-                <a class="navbar-brand" href="#">Gerador de Currículo</a>
+                <a class="navbar-brand" href="#"><img rel="icon" type="image/x-icon" src="Images\favicon-32x32.png"> Gerador de Currículo</a>
             </div>
         </nav>
     </header>
@@ -101,8 +102,9 @@
         function redirect(gerar) {
             if (gerar == 1) {
                 <?php
-                    echo 'window.open("http://'.$servidor.'/GeradorDeCurriculo/gerador.html", "_blank");'
+                    echo 'window.open("http://'.$servidor.'/GeradorDeCurriculo/gerador.html");'
                 ?>
+                
             }
             if (gerar == 2) {
                 <?php
