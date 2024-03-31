@@ -100,11 +100,14 @@
         var erro = document.getElementById("erro")
         function redirect(gerar) {
             if (gerar == 1) {
-                window.open("http://192.168.191/GeradorDeCurriculo/gerador.html", "_blank");
+                <?php
+                    echo 'window.open("http://'.$servidor.'/GeradorDeCurriculo/gerador.html", "_blank");'
+                ?>
             }
             if (gerar == 2) {
-                //erro.innerHTML = '<div class="row"><div class="col text-center"><h3 style="color: red;">Erro: Sistema de pesquisa ainda não funcional</h3></div></div>'
-                window.open("http://192.168.0.191/phpmyadmin/index.php?route=/database/structure&db=curriculos2024");
+                <?php
+                    echo 'window.open("http://'.$servidor.'/phpmyadmin/index.php?route=/database/structure&db=curriculos2024");'
+                ?>
             }
         }
 
