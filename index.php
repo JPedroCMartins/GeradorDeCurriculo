@@ -121,9 +121,13 @@
                 if (novaJanela) {
                     // Inicia a janela de impressão na nova janela
                     novaJanela.print();
+                    setTimeout(function(){
+                        novaJanela.close();
+                    }, 2000)
                 } else {
                     // Caso contrário, avisa o usuário que a janela pop-up está bloqueada
                     alert('Pop-up bloqueado. Por favor, habilite os pop-ups para imprimir.');
+                    
                 }
             }, 1000); // Espera 1 segundo (1000 milissegundos) para a janela ser aberta
         }

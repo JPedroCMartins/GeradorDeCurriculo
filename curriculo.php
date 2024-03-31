@@ -186,5 +186,8 @@
             Manaus, AM<br>2024
         </footer>
     </div>
+    <script>
+        
+    </script>
 </body>
 </html>
