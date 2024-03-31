@@ -7,9 +7,7 @@
     <title>Formulário de Currículo</title>
     <!-- Adicione a CDN do Bootstrap -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-
-    </style>
+    <link rel="icon" type="image/x-icon" href="Images\favicon.ico">
 </head>
 
 <body>
@@ -25,6 +23,7 @@
 
                 <div class="form-group">
                     <label for="data_nascimento">Data de nascimento: </label>
+                    <input type="checkbox" name="check_data_nascimento" id="nascimentoCheckDate" checked>
                     <input type="date" name="data_nascimento" id="data_nascimento">
                 </div>
 
@@ -78,6 +77,16 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <script>
+        var checkNascimento = document.getElementById("nascimentoCheckDate");
+        var nascCampo = document.getElementById("")
+        checkNascimento.addEventListener("click", function () {
+            if (!checkNascimento.checked) {
+                data_nascimento.disabled = true
+            } else {
+                data_nascimento.disabled = false
+            }
+        })
+
         function addExperience() {
             var numExperiencias = document.querySelectorAll('.experiencia').length + 1;
 
@@ -126,7 +135,6 @@
             `;
             document.getElementById('cursosComplementares').appendChild(div);
         }
-
 
     </script>
 </body>

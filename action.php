@@ -3,7 +3,13 @@
     $clienteNome = $_POST["nome"];
     $clienteEmail = $_POST["email"];
     $data = $_POST["data_nascimento"];
-    $clienteNascimento = date('d/m/Y', strtotime($data));
+    $checkClienteNascimento = $_POST["check_data_nascimento"];
+    if ($checkClienteNascimento){
+        $clienteNascimento = date('d/m/Y', strtotime($data));
+    }else{
+        $clienteNascimento = "";
+    }
+    
     $clienteEndereco = $_POST["endereco"];
     $clienteTelefone = $_POST["telefone"];
     $clienteObjetivo = $_POST["areaObjetivo"];
