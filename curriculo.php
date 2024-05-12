@@ -19,7 +19,7 @@
         }
 
         header {
-            text-align: center;
+            text-align: left;
 
         }
 
@@ -192,7 +192,10 @@
     <div id="experiencia">
         <h2 class="head-topic">EXPERIENCIA PROFISSIONAL</h2>
         <?php 
-         foreach ($experiencias as $experiencia) {
+        if (empty($experiencia)){
+            echo '<i class="fa-solid fa-check"></i>Em busca do primeiro emprego...';
+        }
+        foreach ($experiencias as $experiencia) {
             echo '<p><i class="fa-solid fa-check"></i><strong>Empresa: </strong> ' . $experiencia['empresa'];
             echo '<br>';
             echo '<i class="fa-solid fa-check"></i><strong>Cargo: </strong> ' . $experiencia['cargo'] . '</p>';
